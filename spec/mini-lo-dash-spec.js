@@ -156,6 +156,60 @@
 
         });
 
+        describe('#find', function () {
+            it('returns the matched element', function () {
+                var matchedElement
+
+                var catsWithColors = [
+                    {
+                        name: 'Harry',
+                        color: 'brown'
+                    },
+                    {
+                        name: 'Julia',
+                        color: 'black'
+                    },
+                    {
+                        name: 'Anton',
+                        color: 'gray'
+                    }
+                ]
+
+                matchedElement = _.find(catsWithColors, function(cat) {
+                    return cat.name === 'Anton'
+                })
+
+                expect(matchedElement).toEqual('Harry')
+            })
+        });
+
+        describe('#findIndex', function () {
+            it('returns the index of the matched element', function () {
+                var matchedCloneTrooper
+
+                var cloneTroopers = [
+                    {
+                        name: 'Rex',
+                        reports_to: 'Anakin Skywalker'
+                    },
+                    {
+                        name: 'Cody',
+                        reports_to: 'Obi Wan Kanobi'
+                    },
+                    {
+                        name: 'Wolfe',
+                        reports_to: 'Mace Windu'
+                    }
+                ]
+
+                matchedCloneTrooper = _.findIndex(matchedCloneTrooper, function (cloneTrooper) {
+                    return cloneTrooper.name === 'Cody'
+                })
+
+                expect(matchedCloneTrooper).toEqual(1)
+            })
+        })
+
         describe('#reduce', function () {
 
             it('can sum a group of input numbers', function () {
